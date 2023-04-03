@@ -7,7 +7,8 @@ function isInViewport(el) {
     rect.left + elementWidth >= 0 &&
     rect.bottom - elementHeight <=
       (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect.right - elementWidth <=
+      (window.innerWidth || document.documentElement.clientWidth)
   );
 }
 setInterval(() => {
