@@ -10,7 +10,7 @@
   justify-content: space-between;
   flex-flow: row wrap;
   padding: 5rem 0;
-  column-gap: 2rem;
+  gap: 2rem;
   align-items: center;
 }
 .blog-intro__title {
@@ -54,7 +54,7 @@
   opacity: 0;
 }
 .slide-to-top {
-  animation: slide-to-top 1s ease-out forwards ;
+  animation: slide-to-top 1s ease-out forwards;
 }
 
 .ready-for-slide-to-top {
@@ -111,5 +111,14 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .blog-intro__img {
+    max-width: calc(100% - 2rem);
+  }
+  .blog-intro {
+    justify-content: center;
   }
 }
