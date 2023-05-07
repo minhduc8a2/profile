@@ -1,3 +1,6 @@
+#submit-btn{
+  cursor: pointer;
+}
 .blog-intro img {
   width: 550px;
   max-width: 100%;

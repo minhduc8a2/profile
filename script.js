@@ -43,3 +43,15 @@ setInterval(() => {
     else element.classList.remove("rotateAnimation");
   });
 }, 100);
+
+
+// const sendBtn = document.querySelector("#submit-btn");
+// sendBtn.addEventListener("click",(e)=>{
+//   e.preventDefault();
+//   const inputName = document.querySelector('input[name="name"]');
+//   const inputSubject = document.querySelector('input[name="subject"]');
+//   const inputEmail = document.querySelector('input[name="email"]');
+//   const inputMessage = document.querySelector('input[name="message"]');
+//   if(!inputName || !inputMessage || !inputEmail|| !inputSubject) return;
+//   location.replace(`mailto:minhduc8a2.1@gmail.com?subject=${inputSubject}&body=${inputMessage}`); 
+// })

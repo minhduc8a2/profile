@@ -170,6 +170,18 @@
         <div class="post-wrapper">
           <div>
             <div class="post ready-for-slide-to-top">
+              <img class="thumbnail" src="./assets/img/hd.png" alt="" />
+              <div class="post-preview">
+                <h6 class="post-title">HD Shop</h6>
+                <p class="post-intro">
+                  This web project has been built for educational purposes only and includes full functionality
+                </p>
+                <a href="https://minhduc8a2.github.io/C188Project">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="post ready-for-slide-to-top">
               <img class="thumbnail" src="./assets/img/TheBand.jpg" alt="" />
               <div class="post-preview">
                 <h6 class="post-title">The Band Offical</h6>
@@ -228,68 +240,61 @@
         <h3 style="text-align: center" class="ready-for-slide-to-top">
           Get in touch
         </h3>
-        <form action="" id="contact-form">
-          <label for="">Name</label>
-          <input type="text" name="name" class="input-field" />
-
+        <form action="mailto:minhduc8a2.1@gmail.com" id="contact-form">
           <label for="">Subject</label>
           <input type="text" name="subject" class="input-field" />
 
-          <label for="">Email</label>
-          <input type="text" name="email" class="input-field" />
-
           <label for="">Message</label>
-          <textarea type="text" name="message" class="input-field"> </textarea>
-          <input id="submit-btn" type="submit" value="send" />
+          <textarea type="text" name="body" class="input-field"> </textarea>
+          <button id="submit-btn">Send</button>
         </form>
       </div>
     </section>
 
     <script>
-      let theme = localStorage.getItem("theme");
+      let theme = localStorage.getItem("theme")
       if (theme == null) {
-        setTheme("blue");
+        setTheme("blue")
       } else {
-        setTheme(theme);
+        setTheme(theme)
       }
 
-      let themeDots = document.getElementsByClassName("theme-dot");
+      let themeDots = document.getElementsByClassName("theme-dot")
       for (var dot of themeDots) {
         dot.addEventListener("click", function () {
-          let mode = this.dataset.mode;
+          let mode = this.dataset.mode
 
-          setTheme(mode);
-          console.log("Option clicked");
-        });
+          setTheme(mode)
+          console.log("Option clicked")
+        })
       }
 
       function setTheme(mode) {
-        scaleThemeDot(mode);
+        scaleThemeDot(mode)
         if (mode == "light") {
-          document.getElementById("theme-style").href = "./assets/css/base.css";
+          document.getElementById("theme-style").href = "./assets/css/base.css"
         }
         if (mode == "blue") {
-          document.getElementById("theme-style").href = "./assets/css/blue.css";
+          document.getElementById("theme-style").href = "./assets/css/blue.css"
         }
         if (mode == "green") {
-          document.getElementById("theme-style").href =
-            "./assets/css/green.css";
+          document.getElementById("theme-style").href = "./assets/css/green.css"
         }
         if (mode == "purple") {
           document.getElementById("theme-style").href =
-            "./assets/css/purple.css";
+            "./assets/css/purple.css"
         }
-        localStorage.setItem("theme", mode);
+        localStorage.setItem("theme", mode)
       }
 
       function scaleThemeDot(mode) {
-        let themeDots = document.getElementsByClassName("theme-dot");
+        let themeDots = document.getElementsByClassName("theme-dot")
 
         for (var dot of themeDots) {
           if (mode == dot.dataset.mode) {
-            dot.style.transform = "scale(1.2)";
+            dot.style.transform = "scale(1.2)"
           } else {
-            dot.style.transform = "scale(1)";
+            dot.style.transform = "scale(1)"
           }
         }
       }
