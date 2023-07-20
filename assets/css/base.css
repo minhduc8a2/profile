@@ -16,7 +16,7 @@
   --previewShadow: #f0ead6;
 
   --buttonColor: black;
-  --banner: #bd5b55;
+  --banner: rgb(236, 184, 153);
 }
 * {
   transition: ease 0.5s;
