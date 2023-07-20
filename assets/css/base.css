@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap");
+
 :root {
   --mainColor: #eaeaea;
   --secondaryColor: #fff;
@@ -14,8 +16,12 @@
   --previewShadow: #f0ead6;
 
   --buttonColor: black;
+  --banner: #ecb899;
 }
-
+* {
+  transition: ease 0.5s;
+  box-sizing: border-box;
+}
 html,
 body {
   margin: 0;
@@ -73,6 +79,24 @@ h6 {
   font-size: 16px;
 }
 
+.banner {
+  min-height: 100vh;
+  background-color: var(--mainColor);
+  border-bottom: 1px solid var(--borderColor);
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: change-color 0.5s ease forwards 2.3s;
+}
+
+.banner h1 {
+  font-size: 6rem;
+  font-family: "Roboto Slab", serif;
+  text-align: center;
+  opacity: 0;
+}
+
 .s1 {
   background-color: var(--mainColor);
   border-bottom: 1px solid var(--borderColor);
@@ -89,14 +113,6 @@ h6 {
   width: 1200px;
   overflow: hidden;
   margin: 0 auto;
-}
-
-.greeting-wrapper {
-  display: grid;
-  text-align: center;
-  align-content: center;
-
-  min-height: 10em;
 }
 
 .intro-wrapper {
@@ -176,7 +192,7 @@ h6 {
 #profile-pic {
   display: block;
   margin: 0 auto;
-
+  border-radius: 50%;
   height: 200px;
   width: 200px;
   object-fit: cover;
@@ -194,7 +210,7 @@ h6 {
   height: 30px;
   width: 30px;
   background-color: black;
-  margin: 5px;
+  margin: 10px;
 
   border-radius: 50%;
   border: 2px solid var(--themeDotBorder);
@@ -247,6 +263,7 @@ h6 {
 
 #preview {
   width: 300px;
+
   border: 1.5px solid #17a2b8;
   background-color: var(--previewBg);
   padding: 15px;
@@ -390,7 +407,7 @@ h6 {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .intro-wrapper {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -400,5 +417,34 @@ h6 {
   }
   .right-column {
     justify-content: center;
+  }
+  #preview-shadow {
+    padding-left: 0;
+    height: auto;
+  }
+  #preview {
+    width: 100%;
+  }
+
+  .banner h1 {
+    font-size: 5rem;
+  }
+}
+
+@keyframes change-color {
+  0% {
+    background-color: var(--mainColor);
+  }
+  100% {
+    background-color: var(--banner);
+  }
+}
+
+@keyframes change-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

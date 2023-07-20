@@ -22,15 +22,35 @@
     />
     <link rel="stylesheet" href="./assets/css/base.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/modal.css" />
     <link id="theme-style" rel="stylesheet" href="./assets/css/blue.css" />
   </head>
   <body>
+    <div class="static-elements">
+      <div class="circle-popup">
+        <p>Theme all set</p>
+      </div>
+      <a class="go-to-top" href="#">
+        <img
+          src="./assets/img/hot-air-balloon_3943317.png"
+          alt="car"
+          width="100"
+        />
+      </a>
+      <div class="intro-welcome">
+        <div class="intro">
+          <div class="quarter"><h1>Duke</h1></div>
+          <div class="quarter"></div>
+          <div class="quarter"></div>
+          <div class="quarter"><h1>Lee</h1></div>
+        </div>
+      </div>
+    </div>
+    <div class="banner">
+      <h1 class="slide-to-top delay-animation">Hi, I'm Duke Lee</h1>
+    </div>
     <section class="s1">
       <div class="main-container">
-        <div class="greeting-wrapper">
-          <h1 class="ready-for-slide-to-right">Hi, I'm Le Minh Duc</h1>
-        </div>
-
         <div class="intro-wrapper">
           <div class="nav-wrapper">
             <div class="dots-wrapper">
@@ -46,8 +66,9 @@
           <div class="left-column">
             <img
               id="profile-pic"
-              src="./assets/img/MinhDucModified.jpg"
+              src="./assets/img/profile.jpg"
               alt=""
+              class=" "
             />
             <h5 style="text-align: center; line-height: 0">
               Personalize Theme
@@ -107,22 +128,26 @@
 
             <div id="skills">
               <ul>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Node</li>
+                <li>ReactJs</li>
+                <li>NextJs</li>
+                <li>Bootstrap</li>
+                <li>Tailwind</li>
               </ul>
               <ul>
-                <li>HTML/CSS</li>
+                <li>ExpressJs</li>
+                <li>MongoDB</li>
               </ul>
             </div>
           </div>
           <div class="social-links ready-for-slide-to-top">
-            <img src="./assets/img/maxim.jpg" alt="" id="social-img" />
+            <img
+              src="./assets/img/studywithdukelee.jpg"
+              alt=""
+              id="social-img"
+            />
             <h3>Find me on Facebook & Youtube</h3>
-            <a
-              target="_blank"
-              href="https://www.youtube.com/channel/UCO--uCUNkOMOyp2a8yXZxpQ"
-              >YouTube: Maxim Music</a
+            <a target="_blank" href="https://www.youtube.com/@StudyWithDukeLee"
+              >YouTube: Study With Duke Lee</a
             >
             <br />
             <a target="_blank" href="http://facebook.com/minhduc.le.182"
@@ -137,28 +162,36 @@
         <div class="blog-intro">
           <div class="blog-intro__title">
             <h2 class="ready-for-slide-to-right">My Personal Blog</h2>
-            <a href="https://dlog.onrender.com/"
+            <a href="https://dlog.dukelee.click/" target="_blank"
               ><h2 class="ready-for-slide-to-left">DLOG</h2></a
             >
             <p class="ready-for-slide-to-top">
-              Built on <span>React library</span>
+              Built on <span style="color: var(--maintext)">React library</span>
             </p>
             <p class="ready-for-slide-to-top">
-              Backed by <span>Express library</span> for API
+              Backed by
+              <span style="color: var(--maintext)">Express library</span> for
+              API
             </p>
             <p class="ready-for-slide-to-top">
-              And <span>MongoDB</span> for Database
+              And <span style="color: var(--maintext)">MongoDB</span> for
+              Database
             </p>
             <p class="ready-for-slide-to-top">
               Sharing the author's thoughts and experiences about life
             </p>
             <p>
               Visit DLOG at:
-              <a href="https://dlog.onrender.com/">https://dlog.onrender.com</a>
+              <a href="https://dlog.dukelee.click/" target="_blank"
+                >https://dlog.dukelee.click</a
+              >
             </p>
           </div>
 
-          <a href="https://dlog.onrender.com/" class="blog-intro__img"
+          <a
+            href="https://dlog.dukelee.click/"
+            target="_blank"
+            class="blog-intro__img"
             ><img src="./assets/img/dlog.png" alt=""
           /></a>
         </div>
@@ -286,7 +319,29 @@
           let mode = this.dataset.mode
 
           setTheme(mode)
-          console.log("Option clicked")
+          const circlePopup = document.querySelector(".circle-popup")
+          circlePopup.style.display = "flex"
+          for (var dot of themeDots) {
+            dot.style.pointerEvents = "none"
+          }
+          setTimeout(function () {
+            circlePopup.style.display = "none"
+            for (var dot of themeDots) {
+              dot.style.pointerEvents = "auto"
+            }
+          }, 2300)
+          localStorage.setItem("theme", mode)
+        })
+
+        dot.addEventListener("mouseover", function () {
+          let mode = this.dataset.mode
+
+          setTheme(mode)
+        })
+        dot.addEventListener("mouseout", function () {
+          let theme = localStorage.getItem("theme")
+
+          setTheme(theme)
         })
       }
 
@@ -305,7 +360,6 @@
           document.getElementById("theme-style").href =
             "./assets/css/purple.css"
         }
-        localStorage.setItem("theme", mode)
       }
 
       function scaleThemeDot(mode) {
@@ -314,8 +368,10 @@
         for (var dot of themeDots) {
           if (mode == dot.dataset.mode) {
             dot.style.transform = "scale(1.2)"
+            dot.style.borderColor = "#17a2b8"
           } else {
             dot.style.transform = "scale(1)"
+            dot.style.borderColor = "white"
           }
         }
       }
